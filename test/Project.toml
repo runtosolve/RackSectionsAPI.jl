@@ -1,0 +1,7 @@
+[deps]
+AISIS100 = "01f7396e-a581-4110-84fa-e8964400bef8"
+JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+RackSections = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
+RackSectionsAPI = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
+Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
