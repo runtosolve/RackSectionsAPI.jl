@@ -1,6 +1,6 @@
 # AWS provided base image (Amazon Linux 2)
 # It includes Lambda Runtime Emulator for testing locally.
-# FROM public.ecr.aws/lambda/provided:al2
+#FROM public.ecr.aws/lambda/provided:al2
 FROM public.ecr.aws/lambda/provided:al2.2024.04.22.19
 # FROM julia:latest
 
@@ -21,7 +21,8 @@ ENV JULIA_DEPOT_PATH /var/task/.julia
 # Instantiate project and precompile packages
 COPY Manifest.toml .
 COPY Project.toml .
-RUN /usr/local/julia/bin/julia --project=. -e "using Pkg; Pkg.instantiate(); Pkg.API.precompile()"
+RUN LD_LIBRARY_PATH="" /usr/local/julia/bin/julia --project=. -e "using Pkg; Pkg.instantiate(); Pkg.API.precompile()"
+
 
 # Copy application code
 COPY . .

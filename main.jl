@@ -3,6 +3,7 @@ const LAMBDA_TASK_ROOT = ENV["LAMBDA_TASK_ROOT"]
 const HANDLER = ENV["_HANDLER"]  # from Dockerfile's CMD command
 const RUNTIME_URL = "http://$AWS_LAMBDA_RUNTIME_API/2018-06-01"
 
+
 # Using curl as HTTP client.
 # (Don't want to introduce HTTP.jl dependency for faster initialization)
 

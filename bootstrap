@@ -4,4 +4,5 @@
 
 cd /var/task
 
-/usr/local/julia/bin/julia --project=. main.jl
+LD_LIBRARY_PATH="" /usr/local/julia/bin/julia --project=. main.jl
+# /usr/local/julia/bin/julia --compiled-modules=no --project=. main.jl
