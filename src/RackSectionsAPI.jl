@@ -3,6 +3,31 @@ module RackSectionsAPI
 using StructTypes, RackSections, JSON3
 
 
+struct Options
+
+  create_MAT_file::Boolean
+  create_image_files::Boolean 
+  
+end
+
+
+struct Inputs
+
+  options::Options
+  input::String
+
+end
+
+
+struct Outputs
+
+  properties::
+  MAT_file::String
+  image_files::Vector{Vector{{UInt8}}}
+
+end
+
+
 StructTypes.StructType(::Type{RackSections.Beams.StepBeamInput}) = StructTypes.Struct()
 StructTypes.StructType(::Type{RackSections.Beams.AngledStepBeamInput}) = StructTypes.Struct()
 
@@ -76,6 +101,9 @@ function perform_calculation(event_data)
       properties = RackSections.Braces.rectangular_tube_brace(section_input)
     end
   end
+
+  #if , send to S3
+  #mat file also...
 
   section_outputs = JSON3.write(properties)
   
