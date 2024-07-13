@@ -1,6 +1,11 @@
 [deps]
 AISIS100 = "01f7396e-a581-4110-84fa-e8964400bef8"
+AWS = "fbe9abb3-538b-5e4e-ba9e-bc94f4f92ebc"
+CUFSM = "82b4978f-06ae-48e0-88e8-a26b4f7a0fa1"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+CrossSection = "a0443d1a-7a62-4d3d-b993-57eb2183b07a"
 JSON3 = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+LinesCurvesNodes = "74a74c3a-221d-4cd1-a4eb-c3c8149e7592"
 RackSections = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
 RackSectionsAPI = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
 Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
