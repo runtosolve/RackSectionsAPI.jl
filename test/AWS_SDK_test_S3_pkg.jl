@@ -31,12 +31,18 @@ if api_inputs.create_image_files == true
 
 end
 
-using AWS: @service
-@service S3
+using AWSS3
+using AWS, StringViews
 
-
+aws = global_aws_config(; region="us-east-2")
 
 bucket = "epiq-cufsm-files"
+key = "test/moen_test_7_awss3"
+s3_put(aws, bucket, key, all_figures_IO[1])
+
+StringView(s3_get(aws, bucket, key))  # prints "Hello!"
+println(s3_get(aws, bucket, key, byte_range=1:2))
+
 # key = "moen_test_2"
 
 # test = ["Cris Moen!!!!"]
