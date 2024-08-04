@@ -1,9 +1,9 @@
 module Show
 
-using CairoMakie, CUFSM, CrossSection
+using CairoMakie, CUFSM, CrossSectionFigures
 
 
-function step_beam(section)  #can be used for regular step beams, angled step beams 
+function step_beam(section, api_figure_options)  #can be used for regular step beams, angled step beams 
 
 
     all_figures = []
@@ -11,59 +11,61 @@ function step_beam(section)  #can be used for regular step beams, angled step be
     t = section.input.t
 
     #gross section 
-    drawing_scale = 1.0
-    line_color = :grey
+    # drawing_scale = 1.0
+    # line_color = :grey
+    # line_color = options.line_color
     x = section.geometry.x
     y = section.geometry.y
     num_elem = length(x)
     t_all = fill(t, num_elem)
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
-    linecolor = :grey
+    # linecolor = :grey
+    linecolor = Symbol(api_figure_options.cross_section_linecolor)
     joinstyle=:round
     linecap=:flat
     hidedecorations = true
     hidespines = true
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
     
     #local buckling P signature curve 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling Mxx_pos signature curve 
     model = section.local_buckling_Mxx_pos
-    all_figures = signature_curve(model, all_figures)
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling Mxx_neg signature curve 
     model = section.local_buckling_Mxx_neg
-    all_figures = signature_curve(model, all_figures)
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
 
     #local buckling Myy_pos signature curve 
     model = section.local_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
     #local buckling Myy_neg signature curve 
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
@@ -95,7 +97,7 @@ end
 
 
 
-function define_drawing_size(Δ)
+function define_drawing_size(Δ, max_pixel_size)
 
     max_index = argmax(Δ)
     min_index = argmin(Δ)
@@ -106,10 +108,15 @@ function define_drawing_size(Δ)
 
     drawing_size = Vector{Float64}(undef, 2)
     
-    drawing_size[max_index] = 2048.0
-    drawing_size[min_index] = 2048.0 * Δ[min_index] / Δ[max_index]
+    # drawing_size[max_index] = 2048.0
+    # drawing_size[min_index] = 2048.0 * Δ[min_index] / Δ[max_index]
 
-    thickness_scale = (2048.0 / Δ[max_index])
+    # thickness_scale = (2048.0 / Δ[max_index])
+
+    drawing_size[max_index] = max_pixel_size
+    drawing_size[min_index] = max_pixel_size * Δ[min_index] / Δ[max_index]
+
+    thickness_scale = (max_pixel_size / Δ[max_index])
 
     return drawing_size, thickness_scale
 
@@ -131,15 +138,15 @@ function get_deformed_shape_extents(model, eig, deformation_scale)
 end
 
 
-function signature_curve(model, all_figures)
+function signature_curve(model, all_figures, api_figure_options)
 
     eig = 1
-    backgroundcolor = :white
-    linecolor = :blue
+    backgroundcolor = :transparent
+    linecolor = Symbol(api_figure_options.signature_curve_linecolor)
     linewidth = 1 * 3.5
     fontsize = 12 * 3.5
     markersize = 6 * 3.5 
-    drawing_size = [2048, 2048] 
+    drawing_size = [api_figure_options.max_pixel_size, api_figure_options.max_pixel_size] 
 
 
     options = CUFSM.Show.SignatureCurveOptions(drawing_size, backgroundcolor, linecolor, linewidth, fontsize, markersize)
@@ -152,17 +159,17 @@ function signature_curve(model, all_figures)
 end
 
 
-function mode_shape(model, t, t_elements, all_figures)
+function mode_shape(model, t, t_elements, all_figures, api_figure_options)
     
     deformation_scale = (0.5, 0.5)
     eig = 1
 
     Δ = get_deformed_shape_extents(model, eig, deformation_scale) .+ t
 
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
-    backgroundcolor = :white
-    linecolor = :grey 
+    backgroundcolor = :transparent
+    linecolor = Symbol(api_figure_options.cross_section_linecolor)
     linestyle = :solid 
     joinstyle = :miter
     
@@ -216,14 +223,14 @@ function closed_tube_column(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x)
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
     #net section 
@@ -232,7 +239,7 @@ function closed_tube_column(section)
 
     num_elem = length(x)
     t_all = section.tg
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -309,19 +316,19 @@ function cee_with_lips_column(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
     #net section
     t_all = section.tg
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -417,19 +424,19 @@ function hat_with_rib_column(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
     #net section
     t_all = section.tg
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -526,19 +533,19 @@ function unistrut_in_column(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
     #net section
     t_all = section.tg
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -633,19 +640,19 @@ function unistrut_out_column(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
     #net section
     t_all = section.tg
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -741,14 +748,14 @@ function cee_with_lips_brace(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -808,14 +815,14 @@ function cee_brace(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x) - 1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -868,14 +875,14 @@ function pipe_brace(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x)
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -928,14 +935,14 @@ function rectangular_tube_brace(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x)
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 
@@ -988,14 +995,14 @@ function angle_brace(section)
     hidespines = true
 
 
-    options = CrossSection.Show.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
+    options = CrossSectionFigures.SectionOptions(drawing_size, thickness_scale, backgroundcolor, linecolor, joinstyle, linecap, hidedecorations, hidespines)
 
     
     #gross section 
 
     num_elem = length(x)-1
     t_all = fill(t, num_elem)
-    figure = CrossSection.Show.section(x, y, t_all, options)
+    figure = CrossSectionFigures.section(x, y, t_all, options)
     push!(all_figures, figure)
 
 

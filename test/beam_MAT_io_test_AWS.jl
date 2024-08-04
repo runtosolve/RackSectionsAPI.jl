@@ -23,30 +23,11 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_inputs_js
 
 section = RackSections.Beams.step_beam(section_inputs)
 
-# input = RackSections.Beams.StepBeamInput(member_type, section_type, H, D, W, L, R, t, E, ν)
-# section = RackSections.Beams.step_beam(input)
-
-using AWS, AWSS3, FilePathsBase
-
-
-file_path = S3Path("s3://epiq-cufsm-files", config=global_aws_config(; region="us-east-2"));
-
-
-# file_path = "/Users/crismoen/.julia/dev/RackSectionsAPI/test"
 file_name = "CUFSM_beam_julia.mat"
-
-typeof(joinpath(file_path, file_name))
-
 file_path = "/tmp/"
 
-elem = section.local_buckling_P.elem
-lengths = section.local_buckling_P.lengths
-node = section.local_buckling_P.node
-prop = section.local_buckling_P.prop
-CUFSM.Export.to_MAT(file_path, file_name, elem, lengths, node, prop)
+model = section.local_buckling_Mxx_neg
+bitstream_data = RackSectionsAPI.save_MAT_file_to_IO(model, file_path, file_name)
 
-#/tmp
-read("/Users/crismoen/.julia/dev/RackSectionsAPI/test/CUFSM_beam_julia.mat", String)
 
-#value of S3.body ....
 
