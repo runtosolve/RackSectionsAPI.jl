@@ -1433,7 +1433,7 @@ uuid = "6c6a2e73-6563-6170-7368-637461726353"
 version = "1.2.1"
 
 [[deps.SectionProperties]]
-deps = ["CUFSM"]
+deps = ["CUFSM", "LinearAlgebra", "Statistics"]
 path = "../SectionProperties"
 uuid = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
 version = "0.1.0"

@@ -316,16 +316,16 @@ git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
 uuid = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
 version = "4.1.1"
 
+[[deps.CrossSectionFigures]]
+deps = ["CairoMakie", "LinesCurvesNodes"]
+path = "../../CrossSectionFigures"
+uuid = "e7e052ef-3320-4335-9123-44b78e894dd3"
+version = "0.1.0"
+
 [[deps.CrossSectionGeometry]]
 deps = ["LazySets", "LinearAlgebra", "LinesCurvesNodes", "StaticArrays", "Statistics"]
 path = "../../CrossSectionGeometry"
 uuid = "e5713cf4-1a83-4860-95bf-b82253e75fb4"
-version = "0.1.0"
-
-[[deps.CrossSectionShow]]
-deps = ["CairoMakie", "LinesCurvesNodes"]
-path = "../../CrossSectionShow"
-uuid = "ebc9cd1e-7ac7-4a00-99ed-7895a62ffb40"
 version = "0.1.0"
 
 [[deps.DataAPI]]
@@ -1367,7 +1367,7 @@ uuid = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
 version = "0.1.0"
 
 [[deps.RackSectionsAPI]]
-deps = ["AISIS100", "AWS", "AWSS3", "CUFSM", "CairoMakie", "CrossSectionShow", "JSON3", "LinesCurvesNodes", "RMI", "RackSections", "ReadWriteFind", "StructTypes"]
+deps = ["AISIS100", "AWS", "AWSS3", "CUFSM", "CairoMakie", "CrossSectionFigures", "JSON3", "LinesCurvesNodes", "RMI", "RackSections", "ReadWriteFind", "StructTypes"]
 path = "/Users/crismoen/.julia/dev/RackSectionsAPI"
 uuid = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
 version = "0.1.0"
@@ -1498,7 +1498,7 @@ uuid = "6c6a2e73-6563-6170-7368-637461726353"
 version = "1.2.1"
 
 [[deps.SectionProperties]]
-deps = ["CUFSM"]
+deps = ["CUFSM", "LinearAlgebra", "Statistics"]
 path = "../../SectionProperties"
 uuid = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
 version = "0.1.0"

@@ -183,7 +183,7 @@ function mode_shape(model, t, t_elements, all_figures, api_figure_options)
 end
 
 
-function closed_tube_column(section)  
+function closed_tube_column(section, api_figure_options)  
 
 
     all_figures = []
@@ -213,7 +213,7 @@ function closed_tube_column(section)
     # thickness_scale = (2048.0 / Δ[max_index])
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -245,34 +245,34 @@ function closed_tube_column(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
  
     #local buckling, Mxx 
     model = section.local_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_pos 
     model = section.local_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_neg
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
@@ -295,7 +295,7 @@ function closed_tube_column(section)
 end
 
 
-function cee_with_lips_column(section)  
+function cee_with_lips_column(section, api_figure_options)  
 
 
     all_figures = []
@@ -306,7 +306,7 @@ function cee_with_lips_column(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -334,51 +334,51 @@ function cee_with_lips_column(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #distortional buckling, P 
     model = section.distortional_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
  
     #local buckling, Mxx 
     model = section.local_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
     #distortional buckling, Mxx 
     model = section.distortional_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
     #local buckling, Myy_pos 
     model = section.local_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_neg
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
@@ -403,7 +403,7 @@ end
 
 
 
-function hat_with_rib_column(section)  
+function hat_with_rib_column(section, api_figure_options)  
 
 
     all_figures = []
@@ -414,7 +414,7 @@ function hat_with_rib_column(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -442,51 +442,51 @@ function hat_with_rib_column(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #distortional buckling, P 
     model = section.distortional_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
  
     #local buckling, Mxx 
     model = section.local_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
     #distortional buckling, Mxx 
     model = section.distortional_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
     #distortional buckling, Myy_pos 
     model = section.distortional_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_neg
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
@@ -512,7 +512,7 @@ end
 
 
 
-function unistrut_in_column(section)  
+function unistrut_in_column(section, api_figure_options)  
 
 
     all_figures = []
@@ -523,7 +523,7 @@ function unistrut_in_column(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -551,51 +551,51 @@ function unistrut_in_column(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #distortional buckling, P 
     model = section.distortional_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
  
     #local buckling, Mxx 
     model = section.local_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
     #distortional buckling, Mxx 
     model = section.distortional_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
     #local buckling, Myy_pos 
     model = section.local_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.td
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_neg
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
@@ -619,7 +619,7 @@ end
 
 
 
-function unistrut_out_column(section)  
+function unistrut_out_column(section, api_figure_options)  
 
 
     all_figures = []
@@ -630,7 +630,7 @@ function unistrut_out_column(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -658,51 +658,51 @@ function unistrut_out_column(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     # #distortional buckling, P 
     # model = section.distortional_buckling_P
-    # all_figures = signature_curve(model, all_figures)
+    # all_figures = signature_curve(model, all_figures, api_figure_options)
 
     # t_elements = section.td
-    # all_figures = mode_shape(model, t, t_elements, all_figures)
+    # all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
  
     #local buckling, Mxx 
     model = section.local_buckling_Mxx
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
     # #distortional buckling, Mxx 
     # model = section.distortional_buckling_Mxx
-    # all_figures = signature_curve(model, all_figures)
+    # all_figures = signature_curve(model, all_figures, api_figure_options)
 
     # t_elements = section.td
-    # all_figures = mode_shape(model, t, t_elements, all_figures)
+    # all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
     #local buckling, Myy_pos 
     model = section.local_buckling_Myy_pos
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #local buckling, Myy_neg
     model = section.local_buckling_Myy_neg
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = section.tg
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
 
@@ -727,7 +727,7 @@ end
 
 
 
-function cee_with_lips_brace(section)  
+function cee_with_lips_brace(section, api_figure_options)  
 
 
     all_figures = []
@@ -738,10 +738,10 @@ function cee_with_lips_brace(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
-    linecolor = :grey
+    linecolor = Symbol(api_figure_options.cross_section_linecolor)
     joinstyle=:round
     linecap=:flat
     hidedecorations = true
@@ -761,18 +761,18 @@ function cee_with_lips_brace(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     #distortional buckling, P 
     model = section.distortional_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
@@ -794,7 +794,7 @@ end
 
 
 
-function cee_brace(section)  
+function cee_brace(section, api_figure_options)  
 
 
     all_figures = []
@@ -805,10 +805,10 @@ function cee_brace(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
-    linecolor = :grey
+    linecolor = Symbol(api_figure_options.cross_section_linecolor)
     joinstyle=:round
     linecap=:flat
     hidedecorations = true
@@ -828,10 +828,10 @@ function cee_brace(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
@@ -854,7 +854,7 @@ end
 
 
 
-function pipe_brace(section)  
+function pipe_brace(section, api_figure_options)  
 
 
     all_figures = []
@@ -865,7 +865,7 @@ function pipe_brace(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -888,10 +888,10 @@ function pipe_brace(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
@@ -914,7 +914,7 @@ end
 
 
 
-function rectangular_tube_brace(section)  
+function rectangular_tube_brace(section, api_figure_options)  
 
 
     all_figures = []
@@ -925,7 +925,7 @@ function rectangular_tube_brace(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -948,10 +948,10 @@ function rectangular_tube_brace(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
@@ -974,7 +974,7 @@ end
 
 
 
-function angle_brace(section)  
+function angle_brace(section, api_figure_options)  
 
 
     all_figures = []
@@ -985,7 +985,7 @@ function angle_brace(section)
     y = section.geometry.y
 
     Δ = get_drawing_extents(x, y, t)   
-    drawing_size, thickness_scale = define_drawing_size(Δ)
+    drawing_size, thickness_scale = define_drawing_size(Δ, api_figure_options.max_pixel_size)
 
     backgroundcolor=:transparent
     linecolor = :grey
@@ -1008,10 +1008,10 @@ function angle_brace(section)
 
     #local buckling, P 
     model = section.local_buckling_P
-    all_figures = signature_curve(model, all_figures)
+    all_figures = signature_curve(model, all_figures, api_figure_options)
 
     t_elements = t_all
-    all_figures = mode_shape(model, t, t_elements, all_figures)
+    all_figures = mode_shape(model, t, t_elements, all_figures, api_figure_options)
 
 
     all_figures_IO = Vector{UInt8}[]
