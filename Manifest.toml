@@ -2,11 +2,11 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "6d08b2d08535305e95ac4ce42ca7c2bd58e1cc42"
+project_hash = "310c199ad963ffa68efcdcc13627ca48d0bc069c"
 
 [[deps.AISIS100]]
 deps = ["CSV", "DataFrames", "LinearAlgebra", "Statistics", "Unitful"]
-git-tree-sha1 = "51dafcd3376f9f50121498ff6830766705ed91d6"
+git-tree-sha1 = "200878f44e3e0b67be1582a92786981d3b723114"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/AISIS100.jl.git"
 uuid = "01f7396e-a581-4110-84fa-e8964400bef8"
@@ -151,7 +151,9 @@ version = "0.10.14"
 
 [[deps.CUFSM]]
 deps = ["CairoMakie", "LinearAlgebra", "LinesCurvesNodes", "MAT", "Parameters", "SparseArrays", "Statistics"]
-path = "/Users/crismoen/.julia/dev/CUFSM"
+git-tree-sha1 = "c4e5b2569c31464a5e6e8440a6a5cfb3efbf5f41"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/CUFSM.jl"
 uuid = "82b4978f-06ae-48e0-88e8-a26b4f7a0fa1"
 version = "0.1.0"
 
@@ -285,13 +287,17 @@ version = "4.1.1"
 
 [[deps.CrossSectionFigures]]
 deps = ["CairoMakie", "LinesCurvesNodes"]
-path = "/Users/crismoen/.julia/dev/CrossSectionFigures"
+git-tree-sha1 = "0c36f2f815b7d0322b3bff09e523bad19ea577e0"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/CrossSectionFigures.jl.git"
 uuid = "e7e052ef-3320-4335-9123-44b78e894dd3"
 version = "0.1.0"
 
 [[deps.CrossSectionGeometry]]
 deps = ["LazySets", "LinearAlgebra", "LinesCurvesNodes", "StaticArrays", "Statistics"]
-path = "../CrossSectionGeometry"
+git-tree-sha1 = "9ab39b92bcd0c1ad25fd57e0c0dea84286c2a365"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/CrossSectionGeometry.jl.git"
 uuid = "e5713cf4-1a83-4860-95bf-b82253e75fb4"
 version = "0.1.0"
 
@@ -933,7 +939,9 @@ uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [[deps.LinesCurvesNodes]]
 deps = ["LinearAlgebra", "Parameters", "Rotations", "StaticArrays", "Unitful"]
-path = "/Users/crismoen/.julia/dev/LinesCurvesNodes"
+git-tree-sha1 = "f61322d1c24f04159e6d63dc96bd28b5c2eac899"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/LinesCurvesNodes.jl.git"
 uuid = "74a74c3a-221d-4cd1-a4eb-c3c8149e7592"
 version = "0.1.0"
 
@@ -1321,7 +1329,9 @@ version = "0.1.0"
 
 [[deps.RackSections]]
 deps = ["AISIS100", "CUFSM", "CrossSectionGeometry", "LinearAlgebra", "LinesCurvesNodes", "Parameters", "RMI", "SectionProperties"]
-path = "/Users/crismoen/.julia/dev/RackSections"
+git-tree-sha1 = "657a52a6376ab5f5f78204e5452ae295e432cb66"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/RackSections.jl.git"
 uuid = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
 version = "0.1.0"
 
@@ -1351,7 +1361,9 @@ uuid = "379f33d0-9447-4353-bd03-d664070e549f"
 version = "0.3.0"
 
 [[deps.ReadWriteFind]]
-path = "/Users/crismoen/.julia/dev/ReadWriteFind"
+git-tree-sha1 = "8c0a4eaee20c0a11099c5ebb4c38179b23e869b0"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/ReadWriteFind.jl.git"
 uuid = "6e1ff3fe-52ba-4718-9baa-43b124cc059a"
 version = "0.1.0"
 
@@ -1433,8 +1445,10 @@ uuid = "6c6a2e73-6563-6170-7368-637461726353"
 version = "1.2.1"
 
 [[deps.SectionProperties]]
-deps = ["CUFSM", "LinearAlgebra", "Statistics"]
-path = "../SectionProperties"
+deps = ["LinearAlgebra", "LinesCurvesNodes", "Statistics"]
+git-tree-sha1 = "a0c46fdf8f03732ea0a2d6a468cf89264f61aa74"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/SectionProperties.jl.git"
 uuid = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
 version = "0.1.0"
 
