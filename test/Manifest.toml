@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "2771086c0d499c52f4b0e3ad87622ffad9cd0294"
+project_hash = "fcf4d5072d9d1f7cb348cafef495a7e618f840f8"
 
 [[deps.AISIS100]]
 deps = ["CSV", "DataFrames", "LinearAlgebra", "Statistics", "Unitful"]
@@ -1378,6 +1378,14 @@ git-tree-sha1 = "657a52a6376ab5f5f78204e5452ae295e432cb66"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/RackSections.jl.git"
 uuid = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
+version = "0.1.0"
+
+[[deps.RackSectionsAPI]]
+deps = ["AISIS100", "AWS", "AWSS3", "CUFSM", "CairoMakie", "CrossSectionFigures", "CrossSectionGeometry", "JSON3", "LinesCurvesNodes", "RMI", "RackSections", "ReadWriteFind", "SectionProperties", "StructTypes"]
+git-tree-sha1 = "7dcee9efc60b92d00b9323dbd80c66949b292ef0"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/RackSectionsAPI.jl.git"
+uuid = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
 version = "0.1.0"
 
 [[deps.Random]]
