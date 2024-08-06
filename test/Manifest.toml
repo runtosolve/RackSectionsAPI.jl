@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "ba17a2f2e9069305d68fb62dfc20b4cf40598ee6"
+project_hash = "15a05e03ab5575586e6f13d3bdf90d2c6d78e0bb"
 
 [[deps.AISIS100]]
 deps = ["CSV", "DataFrames", "LinearAlgebra", "Statistics", "Unitful"]
@@ -1396,6 +1396,13 @@ deps = ["ExprTools", "InteractiveUtils", "LinearAlgebra", "Random", "Requires", 
 git-tree-sha1 = "c33117976aedcc5f16b79224acb8f15e39e238ec"
 uuid = "379f33d0-9447-4353-bd03-d664070e549f"
 version = "0.3.0"
+
+[[deps.ReadWriteFind]]
+git-tree-sha1 = "8c0a4eaee20c0a11099c5ebb4c38179b23e869b0"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/ReadWriteFind.jl.git"
+uuid = "6e1ff3fe-52ba-4718-9baa-43b124cc059a"
+version = "0.1.0"
 
 [[deps.RealDot]]
 deps = ["LinearAlgebra"]
