@@ -91,7 +91,7 @@ function perform_calculation(event_data)
       section_details = StructTypes.constructfrom(RackSections.Beams.StepBeamInput, input.section_details)
       properties = RackSections.Beams.step_beam(section_details)
       if input.create_CUFSM_figure_files == true
-        all_figures_IO, all_figures, figure_labels = Show.step_beam(properties, input.figure_options)
+        all_figures_IO, all_figures, figure_labels = Show.step_beam(properties, input.api_figure_options)
       end
     elseif input.section_type == "angled_step_beam"
       # section_input = JSON3.read(input.section_details, RackSections.Beams.AngledStepBeamInput)
@@ -99,7 +99,7 @@ function perform_calculation(event_data)
       # section_details = StructTypes.constructfrom(RackSections.Beams.StepBeamInput, section_input[:section_details])
       properties = RackSections.Beams.angled_step_beam(section_details)
       if input.create_CUFSM_figure_files == true
-        all_figures_IO, all_figures, figure_labels = Show.step_beam(properties, input.figure_options)
+        all_figures_IO, all_figures, figure_labels = Show.step_beam(properties, input.api_figure_options)
       end
     end
   elseif input.member_type == "column"

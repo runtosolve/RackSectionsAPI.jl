@@ -1382,7 +1382,7 @@ version = "0.1.0"
 
 [[deps.RackSectionsAPI]]
 deps = ["AISIS100", "AWS", "AWSS3", "CUFSM", "CairoMakie", "CrossSectionFigures", "CrossSectionGeometry", "JSON3", "LinesCurvesNodes", "RMI", "RackSections", "ReadWriteFind", "SectionProperties", "StructTypes"]
-git-tree-sha1 = "7dcee9efc60b92d00b9323dbd80c66949b292ef0"
+git-tree-sha1 = "220007d7dedc868049c00f9c1397257b349d3196"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/RackSectionsAPI.jl.git"
 uuid = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"

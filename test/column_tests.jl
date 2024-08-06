@@ -34,10 +34,8 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
-# input = 
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
 member_type = "column"
 section_type = "cee_with_lips"
@@ -63,10 +61,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-# input = RackSections.Columns.CeeLipsInput(member_type, section_type, H, D, L, R, t, E, ν, dh_H, dh_D, de_H, de_D, hole_pitch_H, hole_pitch_D, hole_length_H, hole_length_D)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 
 member_type = "column"
@@ -98,12 +93,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-# input = RackSections.Columns.CeeLipsRibInput(member_type, section_type, H, D, L, R, t, E, ν, dh_H, dh_D, de_H, de_D, hole_pitch_H, hole_pitch_D, hole_length_H, hole_length_D, rib_depth, rib_length, rib_radius_start, rib_radius_peak)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
-
-
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 member_type = "column"
 section_type = "hat_with_rib"
@@ -153,13 +143,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-
-# input = RackSections.Columns.HatRibInput(member_type, section_type, H, D1, D2, D3, A, X, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2, rib_depth, rib_length, rib_radius_start, rib_radius_peak)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
-
-
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 
 member_type = "column"
@@ -211,14 +195,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-
-# input = RackSections.Columns.HatLipsRibInput(member_type, section_type, H, D1, D2, D3, A, X, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2, rib_depth, rib_length, rib_radius_start, rib_radius_peak)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
-
-
-
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 
 member_type = "column"
@@ -269,13 +246,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-
-
-# input = RackSections.Columns.HatLipsTrapezoidalRibInput(member_type, section_type, H, D1, D2, D3, A1, X, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2, A2, hr, wr, Rr)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
-
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 member_type = "column"
 section_type = "unistrut_with_lips_in"
@@ -307,12 +278,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-
-# input = RackSections.Columns.UniStrutInput(member_type, section_type, H, D, L1, L2, R, t, E, ν, dh_H, dh_D, de_H, de_D, hole_pitch_H, hole_pitch_D, hole_length_H, hole_length_D, rib_depth, rib_length, rib_radius_start, rib_radius_peak)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
-
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 member_type = "column"
 section_type = "unistrut_with_lips_out"
@@ -345,10 +311,6 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, 
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
-
-
-# inputs = RackSections.Columns.UniStrutInput(member_type, section_type, H, D, L1, L2, R, t, E, ν, dh_H, dh_D, de_H, de_D, hole_pitch_H, hole_pitch_D, hole_length_H, hole_length_D, rib_depth, rib_length, rib_radius_start, rib_radius_peak)
-# event_data = JSON3.write(input)
-# section_outputs = RackSectionsAPI.handle_event(event_data, String[])
+write_input_output_jsons(JSON_file_path, member_type, section_type, api_inputs, section_outputs)
 
 
