@@ -2,7 +2,7 @@
 
 julia_version = "1.10.4"
 manifest_format = "2.0"
-project_hash = "15a05e03ab5575586e6f13d3bdf90d2c6d78e0bb"
+project_hash = "2771086c0d499c52f4b0e3ad87622ffad9cd0294"
 
 [[deps.AISIS100]]
 deps = ["CSV", "DataFrames", "LinearAlgebra", "Statistics", "Unitful"]
@@ -319,6 +319,14 @@ version = "0.6.3"
 git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
 uuid = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
 version = "4.1.1"
+
+[[deps.CrossSectionFigures]]
+deps = ["CairoMakie", "LinesCurvesNodes"]
+git-tree-sha1 = "0c36f2f815b7d0322b3bff09e523bad19ea577e0"
+repo-rev = "main"
+repo-url = "https://github.com/runtosolve/CrossSectionFigures.jl.git"
+uuid = "e7e052ef-3320-4335-9123-44b78e894dd3"
+version = "0.1.0"
 
 [[deps.CrossSectionGeometry]]
 deps = ["LazySets", "LinearAlgebra", "LinesCurvesNodes", "StaticArrays", "Statistics"]
