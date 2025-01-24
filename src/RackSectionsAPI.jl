@@ -201,13 +201,13 @@ function perform_calculation(event_data)
 
   section_outputs = JSON3.write(properties)
 
-  if input.create_CUFSM_figure_files == true
+  # if input.create_CUFSM_figure_files == true
 
-    for i in eachindex(all_figures_IO)
-      s3_put(aws, input.CUFSM_figure_files_bucket_name, figure_labels[i] * ".png", all_figures_IO[i])
-    end
+  #   for i in eachindex(all_figures_IO)
+  #     s3_put(aws, input.CUFSM_figure_files_bucket_name, figure_labels[i] * ".png", all_figures_IO[i])
+  #   end
 
-  end
+  # end
 
   if input.create_CUFSM_MAT_files == true
 
