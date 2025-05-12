@@ -1,18 +1,6 @@
 using JSON3, RackSections, StructTypes, RackSectionsAPI
 
-E = 29500.0
-ν = 0.30
-
-#' ### Inputs
-
-member_type = "beam"
-section_type = "step_beam"
-H = 4.0 
-D = 3.0
-W = 2.0
-L = 1.0
-R = 0.125 + 0.100
-t = 0.100
+JSON3.read("test/json_source/test_results/beam_angled_step_beam_output.json")
 
 api_figure_options = (max_pixel_size = 2048, cross_section_linecolor =:grey, signature_curve_linecolor=:blue)
 
