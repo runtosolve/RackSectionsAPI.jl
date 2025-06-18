@@ -1,0 +1,31 @@
+{
+    "member_type": "column",
+    "section_type": "hat_with_lips_and_rib",
+    "section_details": {
+        "H": 3,
+        "D1": 1.02,
+        "D2": 1.18,
+        "D": 2.7,
+        "A": 135,
+        "L": 0.75,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3,
+        "dh_H": 0.51,
+        "dh_D1": 0.431,
+        "dh_D2": 0.531,
+        "de_H": 0.8,
+        "de_D1": 0.51,
+        "de_D2": 0.59,
+        "hole_pitch_H": 2,
+        "hole_pitch_D1": 2,
+        "hole_pitch_D2": 2,
+        "hole_length_H": 1.086,
+        "hole_length_D1": 0.531,
+        "hole_length_D2": 0.531,
+        "H_rib": 0.25,
+        "R_rib_peak": 0.30000000000000004,
+        "R_rib_flat": 0.30000000000000004
+    }
+}

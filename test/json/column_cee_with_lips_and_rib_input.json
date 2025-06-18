@@ -1,0 +1,24 @@
+{
+    "member_type": "column",
+    "section_type": "cee_with_lips_and_rib",
+    "section_details": {
+        "H": 3,
+        "D": 3,
+        "L": 0.75,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3,
+        "dh_H": 0.71,
+        "dh_D": 0.531,
+        "de_H": 0.8,
+        "de_D": 0.875,
+        "hole_pitch_H": 2,
+        "hole_pitch_D": 2,
+        "hole_length_H": 1.086,
+        "hole_length_D": 0.531,
+        "H_rib": 0.25,
+        "R_rib_flat": 0.30000000000000004,
+        "R_rib_peak": 0.30000000000000004
+    }
+}

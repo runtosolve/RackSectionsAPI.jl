@@ -1,0 +1,12 @@
+{
+    "member_type": "brace",
+    "section_type": "cee",
+    "section_details": {
+        "H": 3,
+        "D": 1.5,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3
+    }
+}

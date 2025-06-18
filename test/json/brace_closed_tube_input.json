@@ -1,0 +1,12 @@
+{
+    "member_type": "brace",
+    "section_type": "closed_tube",
+    "section_details": {
+        "H": 2,
+        "D": 2,
+        "R": 0.25,
+        "t": 0.125,
+        "E": 29500,
+        "ν": 0.3
+    }
+}

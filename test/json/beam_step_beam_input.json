@@ -1,0 +1,14 @@
+{
+    "member_type": "beam",
+    "section_type": "step_beam",
+    "section_details": {
+        "H": 4,
+        "D": 3,
+        "W": 2,
+        "L": 1,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3
+    }
+}
