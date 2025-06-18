@@ -21,5 +21,7 @@
         "H_rib": 0.25,
         "R_rib_peak": 0.30000000000000004,
         "R_rib_flat": 0.30000000000000004
-    }
+    },
+    "create_output_binary": true,
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/unistrut_with_lips_out/CUFSM_figures"
 }

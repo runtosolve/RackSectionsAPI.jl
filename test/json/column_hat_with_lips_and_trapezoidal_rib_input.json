@@ -27,5 +27,7 @@
         "A2": 135,
         "H_rib": 0.5,
         "W_rib": 0.5
-    }
+    },
+    "create_output_binary": true,
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/hat_with_lips_and_trapezoidal_rib/CUFSM_figures"
 }

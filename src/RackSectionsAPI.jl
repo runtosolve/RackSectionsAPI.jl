@@ -2,7 +2,7 @@ module RackSectionsAPI
 
 # using StructTypes, RackSections, JSON3, AWS, AWSS3, ReadWriteFind, CUFSM
 
-using StructTypes, RackSections, JSON3
+using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3
 
 # export Show
 # include("Show.jl")
@@ -15,15 +15,19 @@ struct Inputs
   section_type::String
   section_details
 
+  create_output_binary::Bool 
+  CUFSM_figure_files_bucket_name::String
+
   # create_CUFSM_MAT_files::Bool
   # CUFSM_MAT_files_bucket_name::String
 
   # create_CUFSM_figure_files::Bool
-  # CUFSM_figure_files_bucket_name::String
+ 
 
   # api_figure_options
 
 end
+
 
 
 # StructTypes.StructType(::Type{RackSections.Beams.StepBeamInput}) = StructTypes.Struct()
@@ -84,12 +88,7 @@ end
 
 function perform_calculation(event_data)
 
-
   input = JSON3.read(event_data)
-
-  # if (input.create_CUFSM_figure_files == true | input.create_CUFSM_MAT_files == true)
-  #   aws = global_aws_config(; region="us-east-2")
-  # end
 
   if input.member_type == "beam"
     if input.section_type == "step_beam"
@@ -205,6 +204,21 @@ function perform_calculation(event_data)
   end
 
   section_outputs = JSON3.write(properties)
+
+  if input.create_output_binary == true
+
+    aws = global_aws_config(; region="us-east-2")
+
+    io = IOBuffer()
+    serialize(io, properties)
+    s3_put(aws, input.CUFSM_figure_files_bucket_name,"properties.jlb", take!(io))
+
+    #  io = IOBuffer()
+    # serialize(io, input)
+    # s3_put(aws, input.CUFSM_figure_files_bucket_name,"input.jlb", take!(io))
+
+  end
+
 
   # if input.create_CUFSM_figure_files == true
 

@@ -6,5 +6,7 @@
         "t": 0.1,
         "E": 29500,
         "ν": 0.3
-    }
+    },
+    "create_output_binary": true,
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/brace/pipe/CUFSM_figures"
 }
