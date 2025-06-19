@@ -21,6 +21,21 @@ hole_pitch_D = 2.0
 hole_length_H = 1.086
 hole_length_D = 0.531
 
+
+# H = 3.0 
+# D = 3.0
+# L = 0.75
+# R = 0.125
+# t = 0.12
+# dh_H = 0.5
+# dh_D = 0.5
+# de_H  = 1.0
+# de_D = 1.0
+# hole_pitch_H = 4.0
+# hole_pitch_D = 4.0
+# hole_length_H = 0.5
+# hole_length_D = 0.5
+
 create_output_binary = true 
 CUFSM_figure_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, "CUFSM_figures")
 

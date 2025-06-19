@@ -12,5 +12,5 @@
         "ν": 0.3
     },
     "create_output_binary": true,
-    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/brace/closed_tube/CUFSM_figures"
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/beam/step_beam/CUFSM_figures"
 }
