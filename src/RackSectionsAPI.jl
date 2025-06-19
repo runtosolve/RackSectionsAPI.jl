@@ -150,9 +150,13 @@ function perform_calculation(event_data)
 
   section_outputs = JSON3.write(properties)
 
-  if input.create_output_binary == true
+  if (input.create_output_binary == true || input.create_CUFSM_MAT_files == true)
 
     aws = global_aws_config(; region="us-east-2")
+
+  end
+
+  if input.create_output_binary == true 
 
     io = IOBuffer()
     serialize(io, properties)
