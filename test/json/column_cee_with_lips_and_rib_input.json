@@ -22,5 +22,7 @@
         "R_rib_peak": 0.30000000000000004
     },
     "create_output_binary": true,
-    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/cee_with_lips_and_rib/CUFSM_figures"
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/cee_with_lips_and_rib/CUFSM_figures",
+    "create_CUFSM_MAT_files": true,
+    "CUFSM_MAT_files_bucket_name": "epiq-cufsm-files/column/cee_with_lips_and_rib/CUFSM_MAT"
 }

@@ -10,5 +10,7 @@
         "ν": 0.3
     },
     "create_output_binary": true,
-    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/brace/formed_angle/CUFSM_figures"
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/brace/formed_angle/CUFSM_figures",
+    "create_CUFSM_MAT_files": true,
+    "CUFSM_MAT_files_bucket_name": "epiq-cufsm-files/brace/formed_angle/CUFSM_MAT"
 }

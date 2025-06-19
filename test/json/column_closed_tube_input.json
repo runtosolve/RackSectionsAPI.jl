@@ -18,5 +18,7 @@
         "hole_length_D": 0.531
     },
     "create_output_binary": true,
-    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/closed_tube/CUFSM_figures"
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/closed_tube/CUFSM_figures",
+    "create_CUFSM_MAT_files": true,
+    "CUFSM_MAT_files_bucket_name": "epiq-cufsm-files/column/closed_tube/CUFSM_MAT"
 }
