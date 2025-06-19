@@ -1,7 +1,7 @@
 module RackSectionsAPI
 
 
-using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM
+using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM, ReadWriteFind
 
 
 struct Inputs
@@ -25,7 +25,7 @@ end
 function save_MAT_file_to_IO(model, file_path, file_name)
 
   elem = model.elem
-  lengths = model.lengths
+  lengths = collect(model.lengths)
   node = model.node
   prop = model.prop
   CUFSM.Export.to_MAT(file_path, file_name, elem, lengths, node, prop)

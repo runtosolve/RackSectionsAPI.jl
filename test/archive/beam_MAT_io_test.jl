@@ -26,10 +26,10 @@ section = RackSections.Beams.step_beam(section_inputs)
 # input = RackSections.Beams.StepBeamInput(member_type, section_type, H, D, W, L, R, t, E, ν)
 # section = RackSections.Beams.step_beam(input)
 
-file_path = "/Users/crismoen/.julia/dev/RackSectionsAPI/test"
-file_name = "CUFSM_beam_julia.mat"
+file_path = "/Users/crismoen/.julia/dev/RackSectionsAPI/test/archive"
+file_name = "CUFSM_beam_julia_1.mat"
 elem = section.local_buckling_P.elem
-lengths = section.local_buckling_P.lengths
+lengths = collect(section.local_buckling_P.lengths)
 node = section.local_buckling_P.node
 prop = section.local_buckling_P.prop
 CUFSM.Export.to_MAT(file_path, file_name, elem, lengths, node, prop)
