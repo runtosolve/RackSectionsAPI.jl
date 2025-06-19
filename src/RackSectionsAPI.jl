@@ -1,7 +1,7 @@
 module RackSectionsAPI
 
 
-using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3
+using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM
 
 
 struct Inputs

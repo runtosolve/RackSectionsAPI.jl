@@ -20,7 +20,7 @@ CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_
 
 
 section_details = RackSections.Braces.CeeLipsBraceInput(H, D, L, R, t, E, ν)
-api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, create_output_binary, CUFSM_figure_files_bucket_name)
+api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
