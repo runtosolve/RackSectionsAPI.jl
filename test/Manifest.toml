@@ -300,7 +300,7 @@ version = "4.1.1"
 
 [[deps.CrossSectionFigures]]
 deps = ["CairoMakie", "LinesCurvesNodes"]
-git-tree-sha1 = "d6b7066f4f91140ff9df16b5b57368bf0c14f5b9"
+git-tree-sha1 = "895bd43dbf6d14b345307bfecb8ad16378392192"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/CrossSectionFigures.jl.git"
 uuid = "e7e052ef-3320-4335-9123-44b78e894dd3"
@@ -308,7 +308,7 @@ version = "0.1.0"
 
 [[deps.CrossSectionGeometry]]
 deps = ["LazySets", "LinearAlgebra", "LinesCurvesNodes", "StaticArrays", "Statistics"]
-git-tree-sha1 = "8444e688ee7a6c90550915e8652d40d3c0600d9d"
+git-tree-sha1 = "7e59f04fc75268b049bd60f9e3a5fb4bd25dffc2"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/CrossSectionGeometry.jl.git"
 uuid = "e5713cf4-1a83-4860-95bf-b82253e75fb4"
@@ -986,7 +986,7 @@ version = "1.11.0"
 
 [[deps.LinesCurvesNodes]]
 deps = ["LinearAlgebra", "Rotations", "StaticArrays"]
-git-tree-sha1 = "bf5acd308f61a712914cc305e0e31bea1c903638"
+git-tree-sha1 = "6de811e467c3d5733251d1a3d9f466dae8da8341"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/LinesCurvesNodes.jl.git"
 uuid = "74a74c3a-221d-4cd1-a4eb-c3c8149e7592"
@@ -1378,7 +1378,7 @@ version = "0.1.0"
 
 [[deps.RackSections]]
 deps = ["AISIS100", "CUFSM", "CrossSectionGeometry", "LinearAlgebra", "LinesCurvesNodes", "RMI", "SectionProperties"]
-git-tree-sha1 = "3be290287bc4fb0bcaa5deb477298dc0d3bda01c"
+git-tree-sha1 = "201dc4d380673d6fb960fc944cf81925b369be97"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/RackSections.jl.git"
 uuid = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
@@ -1386,7 +1386,7 @@ version = "0.1.0"
 
 [[deps.RackSectionsAPI]]
 deps = ["AISIS100", "AWS", "AWSS3", "CUFSM", "CrossSectionGeometry", "JSON3", "LinesCurvesNodes", "RMI", "RackSections", "ReadWriteFind", "SectionProperties", "Serialization", "StructTypes"]
-git-tree-sha1 = "cd7fc4a34c3e62bf4bd90e27bb6e36850d0c72fd"
+git-tree-sha1 = "e5d128cdc0952c994efeaa9b8fe0ac43c5e877ce"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/RackSectionsAPI.jl.git"
 uuid = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
@@ -1504,7 +1504,7 @@ version = "1.3.0"
 
 [[deps.SectionProperties]]
 deps = ["LinearAlgebra", "Statistics"]
-git-tree-sha1 = "2ae01e9018ad68f43d40975bd923803908a464c9"
+git-tree-sha1 = "b0fb9b55de654f0ae2cc76fb5a06a9e9ac264c2b"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/SectionProperties.jl.git"
 uuid = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
