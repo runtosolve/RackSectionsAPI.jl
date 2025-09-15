@@ -1,0 +1,30 @@
+{
+    "member_type": "column",
+    "section_type": "unistrut_in_with_rib",
+    "section_info": "without_holes_in_web_and_D",
+    "section_details": {
+        "H": 3,
+        "D": 3,
+        "L1": 0.75,
+        "L2": 0.75,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3,
+        "dh_H": 0,
+        "dh_D": 0.531,
+        "de_H": 0.8,
+        "de_D": 0.875,
+        "hole_pitch_H": 2,
+        "hole_pitch_D": 0,
+        "hole_length_H": 1.086,
+        "hole_length_D": 0.531,
+        "H_rib": 0.25,
+        "R_rib_peak": 0.30000000000000004,
+        "R_rib_flat": 0.30000000000000004
+    },
+    "create_output_binary": true,
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/unistrut_in_with_rib/without_holes_in_web_and_D/CUFSM_figures",
+    "create_CUFSM_MAT_files": true,
+    "CUFSM_MAT_files_bucket_name": "epiq-cufsm-files/column/unistrut_in_with_rib/without_holes_in_web_and_D/CUFSM_MAT"
+}

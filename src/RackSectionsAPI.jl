@@ -8,6 +8,7 @@ struct Inputs
 
   member_type::String
   section_type::String
+  section_info::String
   section_details
 
   create_output_binary::Bool 
@@ -93,10 +94,20 @@ function perform_calculation(event_data)
       section_details = StructTypes.constructfrom(RackSections.Columns.CeeLipsRibInput, input.section_details)
       properties = RackSections.Columns.cee_with_lips_rib(section_details)
  
+    elseif input.section_type == "hat"
+      
+      section_details = StructTypes.constructfrom(RackSections.Columns.HatInput, input.section_details)
+      properties = RackSections.Columns.hat(section_details)
+
     elseif input.section_type == "hat_with_rib"
       
       section_details = StructTypes.constructfrom(RackSections.Columns.HatRibInput, input.section_details)
       properties = RackSections.Columns.hat_with_rib(section_details)
+
+    elseif input.section_type == "hat_with_lips"
+      
+      section_details = StructTypes.constructfrom(RackSections.Columns.HatLipsInput, input.section_details)
+      properties = RackSections.Columns.hat_with_lips(section_details)
  
     elseif input.section_type == "hat_with_lips_and_rib"
 
@@ -108,15 +119,25 @@ function perform_calculation(event_data)
       section_details = StructTypes.constructfrom(RackSections.Columns.HatLipsTrapezoidalRibInput, input.section_details)
       properties = RackSections.Columns.hat_with_lips_trapezoidal_rib(section_details)
 
-    elseif input.section_type == "unistrut_with_lips_in"
+    elseif input.section_type == "unistrut_in_with_rib"
+      
+      section_details = StructTypes.constructfrom(RackSections.Columns.UniStrutRibInput, input.section_details)
+      properties = RackSections.Columns.unistrut_in_with_rib(section_details)
+
+    elseif input.section_type == "unistrut_in"
       
       section_details = StructTypes.constructfrom(RackSections.Columns.UniStrutInput, input.section_details)
       properties = RackSections.Columns.unistrut_in(section_details)
 
-    elseif input.section_type == "unistrut_with_lips_out"
+    elseif input.section_type == "unistrut_out"
       
       section_details = StructTypes.constructfrom(RackSections.Columns.UniStrutInput, input.section_details)
       properties = RackSections.Columns.unistrut_out(section_details)
+
+    elseif input.section_type == "unistrut_out_with_rib"
+      
+      section_details = StructTypes.constructfrom(RackSections.Columns.UniStrutRibInput, input.section_details)
+      properties = RackSections.Columns.unistrut_out_with_rib(section_details)
    
     end
   elseif input.member_type == "brace"

@@ -1,0 +1,27 @@
+{
+    "member_type": "column",
+    "section_type": "unistrut_out",
+    "section_info": "with_holes_in_web_and_D",
+    "section_details": {
+        "H": 3,
+        "D": 3,
+        "L1": 0.75,
+        "L2": 0.75,
+        "R": 0.225,
+        "t": 0.1,
+        "E": 29500,
+        "ν": 0.3,
+        "dh_H": 0.71,
+        "dh_D": 0.531,
+        "de_H": 0.8,
+        "de_D": 0.875,
+        "hole_pitch_H": 2,
+        "hole_pitch_D": 2,
+        "hole_length_H": 1.086,
+        "hole_length_D": 0.531
+    },
+    "create_output_binary": true,
+    "CUFSM_figure_files_bucket_name": "epiq-cufsm-files/column/unistrut_out/with_holes_in_web_and_D/CUFSM_figures",
+    "create_CUFSM_MAT_files": true,
+    "CUFSM_MAT_files_bucket_name": "epiq-cufsm-files/column/unistrut_out/with_holes_in_web_and_D/CUFSM_MAT"
+}

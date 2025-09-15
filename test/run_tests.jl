@@ -1,9 +1,9 @@
 JSON_file_path = joinpath(@__DIR__, "json")
 
-include("/Users/crismoen/.julia/dev/RackSectionsAPI/test/test_helpers.jl")
+include(joinpath(@__DIR__, "test_helpers.jl"))
 
-include("/Users/crismoen/.julia/dev/RackSectionsAPI/test/brace_tests.jl")
+include(joinpath(@__DIR__, "brace_tests.jl"))
 
-include("/Users/crismoen/.julia/dev/RackSectionsAPI/test/beam_tests.jl")
+include(joinpath(@__DIR__, "beam_tests.jl"))
 
-include("/Users/crismoen/.julia/dev/RackSectionsAPI/test/column_tests.jl")
+include(joinpath(@__DIR__, "column_tests.jl"))
