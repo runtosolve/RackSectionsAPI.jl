@@ -1,6 +1,8 @@
 {
     "member_type": "beam",
     "section_type": "angled_step_beam",
+    "section_info": [
+    ],
     "section_details": {
         "H": 4,
         "D": 3,

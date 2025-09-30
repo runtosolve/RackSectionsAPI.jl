@@ -8,7 +8,7 @@ struct Inputs
 
   member_type::String
   section_type::String
-  section_info::String
+  section_info
   section_details
 
   create_output_binary::Bool 

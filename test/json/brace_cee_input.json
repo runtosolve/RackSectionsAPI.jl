@@ -1,6 +1,8 @@
 {
     "member_type": "brace",
     "section_type": "cee",
+    "section_info": [
+    ],
     "section_details": {
         "H": 3,
         "D": 1.5,

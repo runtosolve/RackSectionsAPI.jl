@@ -717,6 +717,12 @@ section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 write_input_output_jsons(JSON_file_path, member_type, section_type, section_info, api_inputs, section_outputs)
 
 
+# outputs=JSON3.read(section_outputs)
+
+# scatterlines(outputs.geometry.x, outputs.geometry.y)
+
+
+
 member_type = "column"
 section_type = "hat_with_lips"
 section_info = "with_holes_in_web"

@@ -1,6 +1,8 @@
 {
     "member_type": "brace",
     "section_type": "pipe",
+    "section_info": [
+    ],
     "section_details": {
         "D": 3,
         "t": 0.1,
