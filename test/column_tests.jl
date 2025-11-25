@@ -34,6 +34,7 @@ api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, sec
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
 
+
 write_input_output_jsons(JSON_file_path, member_type, section_type, section_info, api_inputs, section_outputs)
 
 

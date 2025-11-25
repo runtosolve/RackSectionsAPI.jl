@@ -65,6 +65,10 @@ end
 function perform_calculation(event_data)
 
   input = JSON3.read(event_data)
+  # input = JSON.parse(event_data, Inputs)
+
+  println(input.member_type)
+  println(input.section_type)
 
   if input.member_type == "beam"
     if input.section_type == "step_beam"
@@ -170,6 +174,7 @@ function perform_calculation(event_data)
   end
 
   section_outputs = JSON3.write(properties)
+  #section_outputs = JSON.json(properties)
 
   if (input.create_output_binary == true || input.create_CUFSM_MAT_files == true)
 

@@ -12,5 +12,15 @@ RMI = "972fd468-f086-4b00-9882-82a5b09ef3a4"
 RackSections = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
 RackSectionsAPI = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
 ReadWriteFind = "6e1ff3fe-52ba-4718-9baa-43b124cc059a"
-SectionProperties = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
 StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
+
+[sources]
+AISIS100 = {rev = "main", url = "https://github.com/runtosolve/AISIS100.jl.git"}
+CUFSM = {rev = "main", url = "https://github.com/runtosolve/CUFSM.jl.git"}
+CrossSectionFigures = {rev = "main", url = "https://github.com/runtosolve/CrossSectionFigures.jl.git"}
+CrossSectionGeometry = {rev = "main", url = "https://github.com/runtosolve/CrossSectionGeometry.jl.git"}
+LinesCurvesNodes = {rev = "main", url = "https://github.com/runtosolve/LinesCurvesNodes.jl.git"}
+RMI = {rev = "main", url = "https://github.com/runtosolve/RMI.jl.git"}
+RackSections = {path = "/Users/crismoen/.julia/dev/RackSections"}
+RackSectionsAPI = {path = "/Users/crismoen/.julia/dev/RackSectionsAPI"}
+ReadWriteFind = {rev = "main", url = "https://github.com/runtosolve/ReadWriteFind.jl.git"}

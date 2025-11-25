@@ -1,7 +1,7 @@
 name = "RackSectionsAPI"
 uuid = "69a9059f-e9ca-4dfd-a6c9-32062c14e513"
-authors = ["Cris Moen <cris.moen@runtosolve.com>"]
 version = "0.1.0"
+authors = ["Cris Moen <cris.moen@runtosolve.com>"]
 
 [deps]
 AISIS100 = "01f7396e-a581-4110-84fa-e8964400bef8"
@@ -18,10 +18,21 @@ SectionProperties = "03320fb2-42b0-43fd-9b66-b95dbaa39193"
 Serialization = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 StructTypes = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
 
+[sources]
+AISIS100 = {rev = "main", url = "https://github.com/runtosolve/AISIS100.jl.git"}
+CUFSM = {rev = "main", url = "https://github.com/runtosolve/CUFSM.jl.git"}
+CrossSectionGeometry = {rev = "main", url = "https://github.com/runtosolve/CrossSectionGeometry.jl.git"}
+LinesCurvesNodes = {rev = "main", url = "https://github.com/runtosolve/LinesCurvesNodes.jl.git"}
+RMI = {rev = "main", url = "https://github.com/runtosolve/RMI.jl.git"}
+RackSections = {rev = "main", url = "https://github.com/runtosolve/RackSections.jl.git"}
+ReadWriteFind = {rev = "main", url = "https://github.com/runtosolve/ReadWriteFind.jl.git"}
+SectionProperties = {rev = "main", url = "https://github.com/runtosolve/SectionProperties.jl.git"}
+
 [compat]
 AWS = "1.94.0"
 AWSS3 = "0.11.4"
 CUFSM = "0.1.0"
+JSON3 = "1.14.3"
 RackSections = "0.1.0"
 ReadWriteFind = "0.1.0"
 Serialization = "1.11.0"
