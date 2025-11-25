@@ -697,7 +697,7 @@ version = "0.1.0"
 
 [[deps.RackSections]]
 deps = ["AISIS100", "CUFSM", "CrossSectionGeometry", "LinearAlgebra", "LinesCurvesNodes", "RMI", "SectionProperties"]
-git-tree-sha1 = "4bd1134819f2b5d5284de44e391d888e06b677a5"
+git-tree-sha1 = "546fd578acd5f2389c10e9c791b5220b1df9d218"
 repo-rev = "main"
 repo-url = "https://github.com/runtosolve/RackSections.jl.git"
 uuid = "21e8d1f3-9943-42c4-bedf-2d5458fed8e1"
