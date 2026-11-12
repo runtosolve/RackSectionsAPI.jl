@@ -824,6 +824,52 @@ write_input_output_jsons(JSON_file_path, member_type, section_type, section_info
 
 
 
+# plain hat with D1 holes (BoundsError in hat_geometry before RackSections f3259f1)
+member_type = "column"
+section_type = "hat"
+section_info = "with_holes_in_web_and_D1_and_D2"
+
+R = 0.125 + 0.100
+t = 0.100
+
+
+A = 135.0
+
+H = 4.0
+D1 = 1.02 
+D2 = 1.18 
+D = D1 + D2 + 0.50
+dh_H = 0.710
+dh_D1 = 0.431
+dh_D2 = 0.531
+de_H  = 0.8
+de_D1 = D1/2
+de_D2 = D2/2
+hole_pitch_H = 2.0
+hole_pitch_D1 = 2.0
+hole_pitch_D2 = 2.0
+hole_length_H = 1.086
+hole_length_D1 = 0.531
+hole_length_D2 = 0.531
+
+
+create_output_binary = true 
+CUFSM_figure_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_figures")
+
+create_CUFSM_MAT_files = true
+CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
+
+
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
+api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
+event_data = JSON3.write(api_inputs)
+section_outputs = RackSectionsAPI.handle_event(event_data, String[])
+
+write_input_output_jsons(JSON_file_path, member_type, section_type, section_info, api_inputs, section_outputs)
+
+
+
 
 
 member_type = "column"

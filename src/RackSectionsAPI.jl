@@ -81,7 +81,9 @@ function perform_calculation(event_data)
       
       section_details = StructTypes.constructfrom(RackSections.Beams.AngledStepBeamInput, input.section_details)
       properties = RackSections.Beams.angled_step_beam(section_details)
- 
+
+    else
+      throw(ArgumentError("Unknown beam section_type \"$(input.section_type)\". Valid: step_beam, angled_step_beam."))
     end
   elseif input.member_type == "column"
     if input.section_type == "closed_tube"
@@ -143,7 +145,9 @@ function perform_calculation(event_data)
       
       section_details = StructTypes.constructfrom(RackSections.Columns.UniStrutRibInput, input.section_details)
       properties = RackSections.Columns.unistrut_out_with_rib(section_details)
-   
+
+    else
+      throw(ArgumentError("Unknown column section_type \"$(input.section_type)\". Valid: closed_tube, cee_with_lips, cee_with_lips_and_rib, hat, hat_with_rib, hat_with_lips, hat_with_lips_and_rib, hat_with_lips_and_trapezoidal_rib, unistrut_in, unistrut_in_with_rib, unistrut_out, unistrut_out_with_rib."))
     end
   elseif input.member_type == "brace"
     if input.section_type == "cee_with_lips"  
@@ -170,8 +174,12 @@ function perform_calculation(event_data)
       
       section_details = StructTypes.constructfrom(RackSections.Braces.RectangularTubeBraceInput, input.section_details)
       properties = RackSections.Braces.rectangular_tube_brace(section_details)
-   
+
+    else
+      throw(ArgumentError("Unknown brace section_type \"$(input.section_type)\". Valid: cee_with_lips, cee, pipe, formed_angle, closed_tube."))
     end
+  else
+    throw(ArgumentError("Unknown member_type \"$(input.member_type)\". Valid: beam, column, brace."))
   end
 
   section_outputs = JSON3.write(properties)
