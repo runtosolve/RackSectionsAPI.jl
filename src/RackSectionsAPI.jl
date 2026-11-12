@@ -2,6 +2,7 @@ module RackSectionsAPI
 
 
 using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM, ReadWriteFind
+using MAT   #loads the CUFSM MAT extension that provides CUFSM.Export.to_MAT (MAT is a weak dependency of CUFSM >= 0.2)
 
 
 struct Inputs

@@ -299,7 +299,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatRibInput(H, D1, D2, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatRibInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -361,7 +362,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatRibInput(H, D1, D2, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatRibInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -423,7 +425,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatRibInput(H, D1, D2, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatRibInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -485,7 +488,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatRibInput(H, D1, D2, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatRibInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -544,7 +548,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatLipsRibInput(H, D1, D2, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatLipsRibInput(H, D1, W, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -602,7 +607,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatLipsRibInput(H, D1, D2, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatLipsRibInput(H, D1, W, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2,
      
 hole_pitch_H,
 hole_pitch_D1,
@@ -664,7 +670,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatLipsTrapezoidalRibInput(H, D1, D2, D, A1, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2, A2, H_rib, W_rib)
+W = hat_W_from_D2(H, D, D1, D2, A1, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatLipsTrapezoidalRibInput(H, D1, W, D, A1, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2, A2, H_rib, W_rib)
 api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
@@ -710,7 +717,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatLipsInput(H, D1, D2, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatLipsInput(H, D1, W, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
 api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
@@ -760,7 +768,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatLipsInput(H, D1, D2, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatLipsInput(H, D1, W, D, A, L, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
 api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])
@@ -805,7 +814,8 @@ create_CUFSM_MAT_files = true
 CUFSM_MAT_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_MAT")
 
 
-section_details = RackSections.Columns.HatInput(H, D1, D2, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
+W = hat_W_from_D2(H, D, D1, D2, A, t)   #clear depth between step flanges; the API takes W, D2 is computed
+section_details = RackSections.Columns.HatInput(H, D1, W, D, A, R, t, E, ν, dh_H, dh_D1, dh_D2, de_H, de_D1, de_D2, hole_pitch_H, hole_pitch_D1, hole_pitch_D2, hole_length_H, hole_length_D1, hole_length_D2)
 api_inputs = RackSectionsAPI.Inputs(member_type, section_type, section_info, section_details, create_output_binary, CUFSM_figure_files_bucket_name, create_CUFSM_MAT_files, CUFSM_MAT_files_bucket_name)
 event_data = JSON3.write(api_inputs)
 section_outputs = RackSectionsAPI.handle_event(event_data, String[])

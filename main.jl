@@ -18,8 +18,9 @@ end
 function http_post(url, headers, body)
     header_lines = ["$k: $v" for (k,v) in headers]
     header_options = collect(Iterators.flatten(("-H", v) for v in header_lines))
-    cmd = `curl --silent --show-error $header_options --request POST $url --data $body`
-    return read(cmd, String)
+    #Send the body on stdin: responses can be ~1 MB, far over Linux's 128 KB limit on a single command-line argument.
+    cmd = `curl --silent --show-error $header_options --request POST $url --data-binary @-`
+    return read(pipeline(cmd; stdin = IOBuffer(body)), String)
 end
 
 # Convenient function to post errors to the lamdba execution environment
