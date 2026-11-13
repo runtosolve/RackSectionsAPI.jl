@@ -662,6 +662,7 @@ W_rib = 0.50
 H_rib = 0.50
 Rr = 0.125 + 0.100
 A2 = 135.0
+W_rib = W_rib - 2t*cos(deg2rad(A2)/2) + 2t*tan((π - deg2rad(A2))/2)   #W_rib is now the rib flat between outside corner intersections; this keeps the earlier geometry
 
 create_output_binary = true 
 CUFSM_figure_files_bucket_name = joinpath("epiq-cufsm-files", member_type, section_type, section_info, "CUFSM_figures")
