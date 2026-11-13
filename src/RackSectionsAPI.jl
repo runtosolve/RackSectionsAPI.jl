@@ -1,8 +1,10 @@
 module RackSectionsAPI
 
 
-using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM, ReadWriteFind
-using MAT   #loads the CUFSM MAT extension that provides CUFSM.Export.to_MAT (MAT is a weak dependency of CUFSM >= 0.2)
+using StructTypes, RackSections, JSON3, Serialization, AWS, AWSS3, CUFSM
+
+include("MATv5.jl")
+using .MATv5
 
 
 struct Inputs
@@ -24,25 +26,37 @@ end
 
 
 
-function save_MAT_file_to_IO(model, file_path, file_name)
+#CUFSM model file in MATLAB format, written in memory. Same variables as CUFSM.Export.to_MAT, but as a
+#Level 5 MAT-file (MATv5.jl) instead of v7.3, so the image does not need MAT.jl and its HDF5/MPI libraries.
+function save_MAT_file_to_IO(model)
 
-  elem = model.elem
   lengths = collect(model.lengths)
-  node = model.node
-  prop = model.prop
-  CUFSM.Export.to_MAT(file_path, file_name, elem, lengths, node, prop)
+
+  m_all = Matrix{Any}(undef, 1, length(lengths))
+  fill!(m_all, 1)
+
+  variables = Dict{String, Any}(
+    "BC" => "S-S",
+    "clas" => Matrix{Float64}(undef, 0, 0),
+    "constraints" => 0,
+    "curve" => Matrix{Float64}(undef, 0, 0),
+    "elem" => model.elem,
+    "GBTcon" => Dict{String, Any}("local"=>0.0, "ospace"=>1.0, "other"=>0.0, "couple"=>1.0, "orth"=>2.0, "dist"=>0.0, "glob"=>0.0),
+    "lengths" => reshape(lengths, 1, :),   #1 x n row, as CUFSM saves it
+    "m_all" => m_all,
+    "node" => model.node,
+    "prop" => model.prop,
+    "shapes" => Matrix{Float64}(undef, 0, 0),
+    "springs" => 0)
 
   io = IOBuffer()
+  matwrite_v5(io, variables)
 
-  ReadWriteFind.read_to_io(joinpath(file_path, file_name), io)
-
-  return io.data
+  return take!(io)
 
 end
 
 function get_CUFSM_MAT_IO(section)
-
-  file_path = "/tmp/"
 
   field_list = fieldnames(typeof(section))
 
@@ -50,8 +64,7 @@ function get_CUFSM_MAT_IO(section)
   all_MAT_filenames = Vector{String}(undef, 0)
   for i in eachindex(field_list)
       if occursin("buckling", String(field_list[i]))
-          file_name = String(field_list[i])
-          push!(all_MAT_files_IO, save_MAT_file_to_IO(getfield(section, field_list[i]), file_path, file_name))
+          push!(all_MAT_files_IO, save_MAT_file_to_IO(getfield(section, field_list[i])))
           push!(all_MAT_filenames, String(field_list[i]) * ".mat")
       end
   end
